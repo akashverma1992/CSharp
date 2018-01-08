@@ -1,0 +1,7 @@
+C:\Users\aakash.verma\source\repos\DemoCollections\DemoCollections\bin\Debug\DemoCollections.exe.config
+C:\Users\aakash.verma\source\repos\DemoCollections\DemoCollections\bin\Debug\DemoCollections.exe
+C:\Users\aakash.verma\source\repos\DemoCollections\DemoCollections\bin\Debug\DemoCollections.pdb
+C:\Users\aakash.verma\source\repos\DemoCollections\DemoCollections\obj\Debug\DemoCollections.csprojResolveAssemblyReference.cache
+C:\Users\aakash.verma\source\repos\DemoCollections\DemoCollections\obj\Debug\DemoCollections.csproj.CoreCompileInputs.cache
+C:\Users\aakash.verma\source\repos\DemoCollections\DemoCollections\obj\Debug\DemoCollections.exe
+C:\Users\aakash.verma\source\repos\DemoCollections\DemoCollections\obj\Debug\DemoCollections.pdb
