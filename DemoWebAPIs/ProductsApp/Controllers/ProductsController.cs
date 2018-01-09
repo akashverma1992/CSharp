@@ -28,16 +28,30 @@ namespace ProductsApp.Controllers
             return Ok(product);
         }
 
+        //POST Method to Insert Data into the Database
+        //[HttpPost]
+        //public IHttpActionResult PostData(Product product) {
+        //    ProductsDbContext db = new ProductsDbContext();
+        //    if (ModelState.IsValid) {
+        //        db.Products.Add(product);
+        //        db.SaveChanges();
+        //        Console.WriteLine(product.Id);
+        //        return this.Json(new { msg = "success" });
+        //    }
+        //    return Ok(product);
+        //    return this.Json(new { msg = "failed!" });
+        //}
+
         [HttpPost]
         public IHttpActionResult PostData(Product product) {
             ProductsDbContext db = new ProductsDbContext();
-            if (ModelState.IsValid) {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToRoute("Index", null);
-            }
-            //return Ok(product);
-            return this.Json(new { msg = "Success" });
+            db.Products.Add(new Product { Id = product.Id,
+                Name = product.Name,
+                Category = product.Category,
+                Price = product.Price }
+            );
+            db.SaveChanges();
+            return this.Json(new { msg = "success" });
         }
     }
 }

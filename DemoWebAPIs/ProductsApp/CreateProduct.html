@@ -9,13 +9,14 @@
 <body>
     <h2>Create a Product</h2>
     <hr />
+    <lable>Enter ID</lable> <input type="Number" name="productId" id="Id" />
+    <br />
     <lable>Enter Name</lable> <input type="text" name="productName" id="name" />
     <br />
     <label>Enter Category</label> <input type="text" name="productCategory" id="category" />
     <br />
-    <label>Enter Price</label> <input type="number" name="productPrice" id="price"/>
+    <label>Enter Price</label> <input type="number" name="productPrice" id="price" />
     <br />
-    <!--<input type="button" value="Feed" onclick="$.postData()" />-->
     <button onclick="postData()">Feed</button>
 
     <script type="text/javascript">
@@ -24,37 +25,27 @@
             console.log("Hit!");
             var obj = Object();
             obj = {
-                Name : $("#name").val(),
-                Category : $("#category").val(),
-                Price : $("#price").val()
+                Id: $("#Id").val(),
+                Name: $("#name").val(),
+                Category: $("#category").val(),
+                Price: $("#price").val()
             };
             console.log(obj);
             $.ajax({
                 type: "POST",
-                url: uri + '/' + "PostData",
+                url: uri + "/" + "PostData",
                 dataType: "json",
+                data: obj,
                 success: function (msg) {
                     if (msg) {
-                        alert("Product " + " was added in list !");
+                        alert("Product was added in list !");
                         //location.reload(true);
                     } else {
                         alert("Cannot add to list !");
                     }
-                },
-                data: obj
+                }
             });
         }
     </script>
 </body>
 </html>
-
-<!-- function find() {
-            var id = $("in").val();
-            $.getJSON(uri + '/' + id)
-                .done(function (data) {
-                    $('product').text(formatItem(data));
-                })
-                .fail(function (jqXHR, textStatus, err) {
-                    $('product').text(formatItem(data));
-                });
-        } -->
