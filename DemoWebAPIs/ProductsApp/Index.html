@@ -17,6 +17,12 @@
         <p id="product" />
     </div>
 
+    <div>
+        <h2>Delete by ID</h2>
+        <input type="number" id="prodId2" size="5" />
+        <input type="button" value="Delete" onclick="Delete();" />
+    </div>
+
     <script>
         var uri = 'api/products';
 
@@ -33,7 +39,7 @@
         });
 
         function formatItem(item) {
-            return item.Name + ': $' + item.Price;
+            return item.Id + " : " + item.Name + ': $' + item.Price;
         }
 
         function find() {
@@ -45,6 +51,26 @@
                 .fail(function (jqXHR, textStatus, err) {
                     $('#product').text('Error: ' + err);
                 });
+        }
+
+        function Delete() {
+            console.log($("#prodId2").val());
+            var id = $("#prodId2").val();
+            //var url = uri + "/" + "DeleteData/" + id;
+            $.ajax({
+                type: "DELETE",
+                url: uri + "/" + "DeleteData",
+                dataType: "json",
+                data: id,
+                success: function (msg) {
+                    if (msg) {
+                        alert(msg);
+                        location.reload(true);
+                    } else {
+                        alert("Not Deleted!");
+                    }
+                }
+            });
         }
     </script>
 </body>
