@@ -17,8 +17,20 @@ namespace ProductsApp
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new {
+                    ApiControllers = "Products",
+                    id = RouteParameter.Optional
+                }
             );
+
+            //config.Routes.MapHttpRoute(
+            //    name: "UpdateApi",
+            //    routeTemplate: "api/{controller}/{Product}",
+            //    defaults: new {
+            //        ApiControllers = "Products",
+            //        product = RouteParameter.Optional
+            //    }
+            //);
         }
     }
 }

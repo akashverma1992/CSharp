@@ -5,15 +5,12 @@ using System.Linq;
 using System.Web.Http;
 using System.Data.SqlClient;
 using System.Data;
+using System.Net.Http;
+using System.Net;
 
 namespace ProductsApp.Controllers {
     public class ProductsController : ApiController
     {
-        //Product[] products = new Product[] {
-        //    new Product{Id = 1, Name = "Tomato Soup", Category = "Groceries", Price = 1},
-        //    new Product{Id = 2, Name = "Yo-Yo", Category = "Toys", Price = 8.20M},
-        //    new Product{Id = 3, Name = "Hammer", Category = "Hardware", Price = 16.99M}
-        //};
         private ProductsDbContext db = new ProductsDbContext();
         public IEnumerable<Product> GetAllProducts() {
             var products = from P in db.Products
@@ -32,37 +29,37 @@ namespace ProductsApp.Controllers {
             return Ok(product);
         }
 
-        //POST Method to Insert Data into the Database
-        //[HttpPost]
-        //public IHttpActionResult PostData(Product product) {
-        //    ProductsDbContext db = new ProductsDbContext();
-        //    if (ModelState.IsValid) {
-        //        db.Products.Add(product);
-        //        db.SaveChanges();
-        //        Console.WriteLine(product.Id);
-        //        return this.Json(new { msg = "success" });
-        //    }
-        //    return Ok(product);
-        //    return this.Json(new { msg = "failed!" });
-        //}
-
         [HttpPost]
-        public IHttpActionResult PostData(Product product) {
-            try {
-                ProductsDbContext db = new ProductsDbContext();
-                db.Products.Add(product);
-                db.SaveChanges();
-                return this.Json(new { msg = "success" });
-            } catch (SqlException ex) {
-                Console.Write(ex);
-            }
-            return this.Json(new { msg = "fail" });
+        public IHttpActionResult PostProduct(Product product) {
+            string sqlInsert = "EXEC InsertProcedure " + product.Id
+                + "," + product.Name
+                + "," + product.Category
+                + "," + product.Price;
+            db.Database.ExecuteSqlCommand(sqlInsert);
+            db.SaveChanges();
+            return Ok(product);
         }
 
         [HttpDelete]
         public IHttpActionResult DeleteData(int id) {
-
-            return this.Json(new { msg = "Deleted!" });
+            string sqlDelete = "EXEC DeleteProcedure " + id;
+            db.Database.ExecuteSqlCommand(sqlDelete);
+            db.SaveChanges();
+            //return this.Json(new { msg = "success" });
+            return Ok("success");
         }
+
+        [HttpPut]
+        public IHttpActionResult PutProduct(Product product) {
+            db.Entry(product).State = System.Data.Entity.EntityState.Modified;
+            string sqlUpdate = "EXEC UpdateProcedure "
+                + product.Id
+                + "," + product.Name
+                + "," + product.Category
+                + "," + product.Price;
+            db.Database.ExecuteSqlCommand(sqlUpdate);
+            db.SaveChanges();
+            return this.Json(new { msg = "success"});
+    }
     }
 }

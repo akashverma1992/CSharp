@@ -13,14 +13,14 @@
     <div>
         <h2>Search by ID</h2>
         <input type="text" id="prodId" size="5" />
-        <input type="button" value="Search" onclick="find();" />
+        <input type="button" value="Search" onclick="find()" />
         <p id="product" />
     </div>
 
     <div>
         <h2>Delete by ID</h2>
         <input type="number" id="prodId2" size="5" />
-        <input type="button" value="Delete" onclick="Delete();" />
+        <input type="button" value="Delete" onclick="Delete()" />
     </div>
 
     <script>
@@ -56,19 +56,16 @@
         function Delete() {
             console.log($("#prodId2").val());
             var id = $("#prodId2").val();
-            //var url = uri + "/" + "DeleteData/" + id;
             $.ajax({
                 type: "DELETE",
-                url: uri + "/" + "DeleteData",
+                url: uri + "/" + id,
                 dataType: "json",
                 data: id,
-                success: function (msg) {
-                    if (msg) {
+                success: function (msg, statusText) {
                         alert(msg);
-                        location.reload(true);
-                    } else {
+                },
+                error: function (request, textStatus, error) {
                         alert("Not Deleted!");
-                    }
                 }
             });
         }

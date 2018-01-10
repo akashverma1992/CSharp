@@ -90,6 +90,7 @@
     <Content Include="CreateProduct.html" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
+    <Content Include="UpdateProduct.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,9 +99,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801090602036_Initial Migration.cs" />
-    <Compile Include="Migrations\201801090602036_Initial Migration.Designer.cs">
-      <DependentUpon>201801090602036_Initial Migration.cs</DependentUpon>
+    <Compile Include="Migrations\201801101258594_initial migration.cs" />
+    <Compile Include="Migrations\201801101258594_initial migration.Designer.cs">
+      <DependentUpon>201801101258594_initial migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Product.cs" />
@@ -120,8 +121,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801090602036_Initial Migration.resx">
-      <DependentUpon>201801090602036_Initial Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801101258594_initial migration.resx">
+      <DependentUpon>201801101258594_initial migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

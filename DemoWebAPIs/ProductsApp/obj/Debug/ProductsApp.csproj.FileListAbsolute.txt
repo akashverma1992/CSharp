@@ -39,8 +39,6 @@ C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\bin\System.Net
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\bin\System.Web.Http.xml
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\bin\System.Web.Http.WebHost.xml
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\obj\Debug\ProductsApp.csprojResolveAssemblyReference.cache
-C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\obj\Debug\ProductsApp.Migrations.InitialMigration.resources
-C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\obj\Debug\ProductsApp.csproj.GenerateResource.Cache
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\obj\Debug\ProductsApp.csproj.CoreCompileInputs.cache
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\obj\Debug\ProductsApp.dll
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\obj\Debug\ProductsApp.pdb
@@ -92,3 +90,5 @@ C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\bin\roslyn\vbc
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\bin\roslyn\vbc.rsp
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\bin\roslyn\VBCSCompiler.exe
 C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\obj\Debug\ProductsApp.Migrations.initialmigration.resources
+C:\Users\aakash.verma\source\repos\CSharp\DemoWebAPIs\ProductsApp\obj\Debug\ProductsApp.csproj.GenerateResource.Cache

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2>Update a Product</h2>
+    <hr />
+    <lable>Enter ID</lable> <input type="Number" name="productId" id="Id" />
+    <br />
+    <lable>Enter Name</lable> <input type="text" name="productName" id="name" />
+    <br />
+    <label>Enter Category</label> <input type="text" name="productCategory" id="category" />
+    <br />
+    <label>Enter Price</label> <input type="number" name="productPrice" id="price" />
+    <br />
+    <button onclick="find()">Get Product</button>
+    <button onclick="updateData()">Update Product</button>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = "api/products";
+
+        function find() {
+            var id = $('#Id').val();
+            $.getJSON(uri + '/' + id)
+                .done(function (msg) {
+                    console.log(msg);
+                    $("#name").val(msg["Name"]);
+                    $("#category").val(msg["Category"]);
+                    $("#price").val(msg["Price"]);
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#product').text('Error: ' + err);
+                });
+        }
+
+        function updateData() {
+            var id = $('#Id').val();
+            var product = {
+                Id: id,
+                Name: $("#name").val(),
+                Category: $("#category").val(),
+                Price: $("#price").val()
+            };
+            console.log(product);
+            $.ajax({
+                type: "PUT",
+                url: uri + "/",
+                dataType: "json",
+                data: product,
+                success: function (msg) {
+                    alert("Product Updated!");
+                }, error: function () {
+                    alert("Not Updated!");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -2,8 +2,6 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript">
-    </script>
     <title></title>
 </head>
 <body>
@@ -17,32 +15,30 @@
     <br />
     <label>Enter Price</label> <input type="number" name="productPrice" id="price" />
     <br />
-    <button onclick="postData()">Feed</button>
+    <button onclick="create()">Feed</button>
 
-    <script type="text/javascript">
-        function postData() {
-            var uri = "api/products"
-            console.log("Hit!");
-            var obj = Object();
-            obj = {
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = 'api/products';
+        function create() {
+            var product = {
                 Id: $("#Id").val(),
                 Name: $("#name").val(),
                 Category: $("#category").val(),
                 Price: $("#price").val()
             };
-            console.log(obj);
+            console.log(product);
             $.ajax({
-                type: "POST",
-                url: uri + "/" + "PostData",
+                url: uri + '/PostProduct',
+                cache: false,
+                type: 'POST',
                 dataType: "json",
-                data: obj,
+                data: product,
                 success: function (msg) {
-                    if (msg) {
-                        alert("Product was added in list !");
-                        location.reload(true);
-                    } else {
-                        alert("Cannot add to list !");
-                    }
+                        alert("Addition successful with" + msg);
+                },
+                error: function () {
+                        alert("Addition not sucessful");
                 }
             });
         }
